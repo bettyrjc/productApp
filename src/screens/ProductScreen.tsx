@@ -1,4 +1,6 @@
 import React, {useEffect, useContext, useState} from 'react';
+import Icon from 'react-native-vector-icons/Ionicons';
+
 import {StackScreenProps} from '@react-navigation/stack';
 import {ProductsStackParams} from '../navigator/ProductsNavigator';
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
@@ -76,7 +78,7 @@ const ProductScreen = ({route, navigation}: Props) => {
 
         const uri = response.assets[0].uri;
         if (uri) setTempUri(uri);
-        uploadImage(response, id)
+        uploadImage(response, id);
       },
     );
   };
@@ -93,7 +95,7 @@ const ProductScreen = ({route, navigation}: Props) => {
 
         const uri = response.assets[0].uri;
         if (uri) setTempUri(uri);
-        uploadImage(response, id)
+        uploadImage(response, id);
       },
     );
   };
@@ -120,7 +122,6 @@ const ProductScreen = ({route, navigation}: Props) => {
             />
           ))}
         </Picker>
-
         <Button title="Guardar" color="#5856d6" onPress={saveOrUpdate} />
         {_id.length > 0 && (
           <View
@@ -129,9 +130,36 @@ const ProductScreen = ({route, navigation}: Props) => {
               justifyContent: 'center',
               marginTop: 10,
             }}>
-            <Button title="Cámara" color="#5856d6" onPress={takeFoto} />
+            <View
+              style={{
+                display: 'flex',
+                flexDirection: 'row',
+              }}>
+              <Text style={{marginTop: 5}}>
+                <Icon name="camera-outline" size={25} color="#5856d6" />
+              </Text>
+              <Button title="Cámara" color="#5856d6" onPress={takeFoto} />
+            </View>
             <View style={{width: 10}}></View>
-            <Button title="Galeria" color="#5856d6" onPress={takeFotoFromGallery} />
+            <View
+              style={{
+                display: 'flex',
+                flexDirection: 'row',
+                marginLeft: 20,
+              }}>
+              <Text style={{marginTop: 5}}>
+                <Icon
+                  name="file-tray-stacked-outline"
+                  size={25}
+                  color="#5856d6"
+                />
+              </Text>
+              <Button
+                title="Galeria"
+                color="#5856d6"
+                onPress={takeFotoFromGallery}
+              />
+            </View>
           </View>
         )}
       </ScrollView>
@@ -148,18 +176,19 @@ const ProductScreen = ({route, navigation}: Props) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 10,
-    marginHorizontal: 20,
+    paddingHorizontal: 10,
+    paddingTop: 25,
   },
   label: {
-    fontSize: 18,
+    fontSize: 14,
+    color: '#5856D6',
   },
   input: {
     borderWidth: 1,
     paddingHorizontal: 10,
     paddingVertical: 5,
-    borderRadius: 20,
-    borderColor: 'rgba(0,0,0,0.2)',
+    borderRadius: 10,
+    borderColor: 'rgba(0,0,0,0.4)',
     height: 45,
     marginTop: 5,
     marginBottom: 15,

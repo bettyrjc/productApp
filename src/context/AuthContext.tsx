@@ -102,7 +102,6 @@ export const AuthProvider = ({children}: any) => {
         },
       });
       await AsyncStorage.setItem('token', data.token);
-      console.log('response', data);
     } catch (err) {
       console.log(err.response.data.msg);
       dispatch({

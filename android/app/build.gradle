@@ -1,5 +1,7 @@
 apply plugin: "com.android.application"
-
+project.ext.vectoricons = [
+    iconFontNames: [ 'Ionicons.ttf' ] // Name of the font files you want to copy
+]
 import com.android.build.OutputFile
 
 /**

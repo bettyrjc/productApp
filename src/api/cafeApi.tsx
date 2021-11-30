@@ -7,10 +7,8 @@ const cafeApi = axios.create({baseURL});
 
 cafeApi.interceptors.request.use(async config => {
   const token = await AsyncStorage.getItem('token');
-
   if (token) {
-    config.headers['x-token'] =
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MTViMWUxMjJmMGJjNmIxNDY1YjY1MGEiLCJpYXQiOjE2MzYxMjAyMzUsImV4cCI6MTYzNjcyNTAzNX0.ru0WP3lFGlrAdrcJN9srsTnOuSi2AhIaapKWdcWPKmA';
+    config.headers['x-token'] = token;
   }
   return config;
 });

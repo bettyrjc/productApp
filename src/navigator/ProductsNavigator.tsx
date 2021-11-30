@@ -1,6 +1,5 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {View} from 'react-native';
 import ProductsScreen from '../screens/ProductsScreen';
 import ProductScreen from '../screens/ProductScreen';
 
@@ -28,6 +27,7 @@ const ProductsNavigator = () => {
         component={ProductsScreen}
         options={{title: 'Productos'}}
       />
+
       <Stack.Screen name="ProductScreen" component={ProductScreen} />
     </Stack.Navigator>
   );
